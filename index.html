@@ -12,6 +12,8 @@
       integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
       crossorigin="anonymous"
     />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
     <main class="container">
@@ -40,6 +42,13 @@
           </button>
         </div>
         <p class="mb-3 w-50 mx-auto text-secondary" id="book-results"></p>
+      </section>
+      <!-- Display Invalid Search -->
+      <section mb-3 id="book-invalid" class="d-none ">
+        <p class="bg-danger fs-1 text-white text-center rounded">
+          No Result Found
+        </p>
+      </div>
       </section>
       <!-- Display Section -->
       <section mb-3 id="book-section" class="d-none">
