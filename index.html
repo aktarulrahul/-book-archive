@@ -18,12 +18,13 @@
       <!-- input Section -->
       <section class="m-3">
         <div class="input-group mt-3 w-50 mx-auto">
-          <input type="text" class="form-control" placeholder="Book Name" />
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            id="button-addon2"
-          >
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Book Name"
+            id="book-input"
+          />
+          <button class="btn btn-outline-secondary" type="button" id="book-btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -38,24 +39,12 @@
             </svg>
           </button>
         </div>
-        <p class="mb-3 w-50 mx-auto d-none"></p>
+        <p class="mb-3 w-50 mx-auto text-secondary" id="book-results"></p>
       </section>
       <!-- Display Section -->
-      <section mb-3>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="card h-100">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
-            </div>
-          </div>
+      <section mb-3 id="book-section" class="d-none">
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="book-container">
+          <div class="col border border-1 rounded shadow p-3"></div>
         </div>
       </section>
     </main>
