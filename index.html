@@ -26,7 +26,7 @@
             placeholder="Book Name"
             id="book-input"
           />
-          <button class="btn btn-outline-secondary" type="button" id="book-btn">
+          <button class="btn btn-success" type="button" id="book-btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -41,7 +41,14 @@
             </svg>
           </button>
         </div>
+        <!-- Total number of Search results -->
         <p class="mb-3 w-50 mx-auto text-secondary" id="book-results"></p>
+        <!-- data loading Loading -->
+        <div class="mb-3 w-50 mx-auto text-secondary d-none" id="book-loading">
+          <div class="spinner-border text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
       </section>
       <!-- Display Invalid Search -->
       <section mb-3 id="book-invalid" class="d-none ">

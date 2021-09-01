@@ -1,5 +1,12 @@
 const booksContainer = document.getElementById("book-container");
 
+//loading spinner
+const loadingSpinner = (status) => {
+  status
+    ? document.getElementById("book-loading").classList.remove("d-none")
+    : document.getElementById("book-loading").classList.add("d-none");
+};
+
 // Clear all Data Displays
 const clearAll = () => {
   booksContainer.textContent = "";
@@ -7,19 +14,10 @@ const clearAll = () => {
   document.getElementById("book-section").classList.add("d-none");
   document.getElementById("book-invalid").classList.add("d-none");
 };
-
 // Invalid Search handler
 const displayInvalidSearch = () => {
   document.getElementById("book-invalid").classList.remove("d-none");
 };
-// Search button click handler
-document.getElementById("book-btn").addEventListener("click", () => {
-  clearAll();
-  const bookInput = document.getElementById("book-input").value.toLowerCase();
-  fetch(`https://openlibrary.org/search.json?q=${bookInput}`)
-    .then((res) => res.json())
-    .then((data) => displayBook(data));
-});
 
 // Display total result found function
 const showTotalResults = (num) => {
@@ -61,7 +59,7 @@ const displayBook = (books) => {
                     ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
                     : `https://covers.openlibrary.org/b/id/10909258-M.jpg`
                 }
-                class="card-img-top img-fluid rounded book-card-img"
+                class="card-img-top img-fluid rounded book-card-img p-3"
                 alt=${book.title}
               />
               <div class="card-body">
@@ -87,4 +85,15 @@ const displayBook = (books) => {
     `;
     booksContainer.appendChild(bookCard);
   });
+  loadingSpinner(false);
 };
+
+// Search button click handler
+document.getElementById("book-btn").addEventListener("click", () => {
+  clearAll();
+  loadingSpinner(true);
+  const bookInput = document.getElementById("book-input").value.toLowerCase();
+  fetch(`https://openlibrary.org/search.json?q=${bookInput}`)
+    .then((res) => res.json())
+    .then((data) => displayBook(data));
+});
