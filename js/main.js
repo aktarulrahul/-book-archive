@@ -37,8 +37,15 @@ const displayBook = (books) => {
     : displayInvalidSearch();
   document.getElementById("book-section").classList.remove("d-none");
   books.docs.forEach((book) => {
-    const publisher = book.publisher ? book.publisher[0] : "";
-    const author = book.author_name ? book.author_name[0] : "";
+    const publisher = book.publisher
+      ? book.publisher[0]
+      : "Information Is Missing";
+    const author = book.author_name
+      ? book.author_name[0]
+      : "Information Is Missing";
+    const first_publish_year = book.first_publish_year
+      ? book.first_publish_year
+      : "Information Is Missing";
     if (book.length < 1) {
       displayInvalidSearch();
     }
@@ -76,7 +83,7 @@ const displayBook = (books) => {
                   </tr>
                   <tr>
                     <td class="w-25">First Publish Year</td>
-                    <td class="text-wrap">${book.first_publish_year}</td>
+                    <td class="text-wrap">${first_publish_year}</td>
                   </tr>
                   </tbody>
                 </table>
